@@ -1,0 +1,129 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "d4a23a86-a11b-4cc2-8359-31bd072416ec": {
+        "id": "d4a23a86-a11b-4cc2-8359-31bd072416ec",
+        "parent": null,
+        "name": "0506_DeployFailedProject",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "98d6dec8-370c-4e70-9bf5-180625d7ca91"
+        ],
+        "isRemovable": false,
+        "filePath": "0506_DeployFailedProject"
+      },
+      "98d6dec8-370c-4e70-9bf5-180625d7ca91": {
+        "id": "98d6dec8-370c-4e70-9bf5-180625d7ca91",
+        "parent": "d4a23a86-a11b-4cc2-8359-31bd072416ec",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "0506_DeployFailedProject/lambda.js",
+        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n\n    s3.listObjects({\n        'Bucket': 'hirudinee-test001',\n        'MaxKeys': 10\n    }).promise()\n        .then(data => {\n\n            let jsonObj = data;\n            let jsonStr = JSON.stringify(jsonObj);\n\n            console.log(data);\n            callback(null, { \"message\": \"Successfully executed\", jsonStr });          // successful response\n\n        })\n        .catch(err => {\n            console.log(err, err.stack);\n            let jsonObj = err;\n            let jsonStr = JSON.stringify(jsonObj);\n\n            callback(null, { \"message\": \"error\", jsonObj }); // an error occurred\n        });\n\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "apigusEast1HiruTest01PYchrometestany",
+            "config": {}
+          }
+        ]
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "d4a23a86-a11b-4cc2-8359-31bd072416ec",
+    "openFiles": [
+      "98d6dec8-370c-4e70-9bf5-180625d7ca91"
+    ],
+    "currentFileId": "98d6dec8-370c-4e70-9bf5-180625d7ca91",
+    "resources": {
+      "apigusEast1HiruTest01PYchrometestany": {
+        "name": "apigusEast1HiruTest01PYchrometestany",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 1,
+          "apiName": "Hiru_Test01PY",
+          "apiId": "8kibq62bgj",
+          "endpointType": "EDGE",
+          "rootResourceId": "jd5j9pfbw0",
+          "existingResources": {
+            "/newproject": "a0xo7k",
+            "/": "jd5j9pfbw0",
+            "/Testcase001": "kgkoq4"
+          },
+          "resourceMode": 0,
+          "resourceName": "chrometest",
+          "resourcePath": "/chrometest",
+          "restMethod": "ANY",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 1,
+          "stageName": "Test",
+          "stageDeploymentId": "zimowf",
+          "mode": 1
+        }
+      },
+      "s3hirudineeTest001": {
+        "name": "s3hirudineeTest001",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "hirudinee-test001"
+          }
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "0506_DeployFailedProject",
+    "projectDescription": "This project is created to reproduce an issue found on firefox",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1559712633983
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "0506_DeployFailedProject",
+      "url": "https://github.com/HirudineeADRT/0506_DeployFailedProject"
+    }
+  }
+}
