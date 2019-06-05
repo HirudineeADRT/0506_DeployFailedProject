@@ -30,26 +30,7 @@ exports.handler = function (event, context, callback) {
             console.log(err, err.stack); // an error occurred
         });
 
-    s3.listObjects({
-        'Bucket': 'hirudinee-test001',
-        'MaxKeys': 10
-    }).promise()
-        .then(data => {
-
-            let jsonObj = data;
-            let jsonStr = JSON.stringify(jsonObj);
-
-            console.log(data);
-            callback(null, { "message": "Successfully executed", jsonStr });          // successful response
-
-        })
-        .catch(err => {
-            console.log(err, err.stack);
-            let jsonObj = err;
-            let jsonStr = JSON.stringify(jsonObj);
-
-            callback(null, { "message": "error", jsonObj }); // an error occurred
-        });
+    
     //kumudika commit
     
 
