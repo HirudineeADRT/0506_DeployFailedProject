@@ -8,7 +8,7 @@ exports.handler = function (event, context, callback) {
         'MaxKeys': 10
     }).promise()
         .then(data => {
-
+            //editing from git hub
             let jsonObj = data;
             let jsonStr = JSON.stringify(jsonObj);
 
