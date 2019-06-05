@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "0506_DeployFailedProject/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n\n    s3.listObjects({\n        'Bucket': 'hirudinee-test001',\n        'MaxKeys': 10\n    }).promise()\n        .then(data => {\n\n            let jsonObj = data;\n            let jsonStr = JSON.stringify(jsonObj);\n\n            console.log(data);\n            callback(null, { \"message\": \"Successfully executed\", jsonStr });          // successful response\n\n        })\n        .catch(err => {\n            console.log(err, err.stack);\n            let jsonObj = err;\n            let jsonStr = JSON.stringify(jsonObj);\n\n            callback(null, { \"message\": \"error\", jsonObj }); // an error occurred\n        });\n\n}",
+        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n\n    s3.listObjects({\n        'Bucket': 'hirudinee-test001',\n        'MaxKeys': 10\n    }).promise()\n        .then(data => {\n\n            let jsonObj = data;\n            let jsonStr = JSON.stringify(jsonObj);\n\n            console.log(data);\n            callback(null, { \"message\": \"Successfully executed\", jsonStr });          // successful response\n\n        })\n        .catch(err => {\n            console.log(err, err.stack);\n            let jsonObj = err;\n            let jsonStr = JSON.stringify(jsonObj);\n\n            callback(null, { \"message\": \"error\", jsonObj }); // an error occurred\n        });\n//kumudika commit\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -117,7 +117,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1559712633983
+    "lastSave": 1559733150873
   },
   "VCS_STATE": {
     "provider": "GitHub",
