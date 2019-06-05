@@ -51,4 +51,5 @@ exports.handler = function (event, context, callback) {
             callback(null, { "message": "error", jsonObj }); // an error occurred
         });
     //kumudika commit
+    //kumudika commit 2
 }
