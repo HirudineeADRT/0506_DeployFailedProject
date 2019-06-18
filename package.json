@@ -1,7 +1,9 @@
 {
   "name": "0506_DeployFailedProject",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "mysql": "2.17.1"
+  },
   "devDependencies": {
     "aws-sdk": "2.176.0"
   }
