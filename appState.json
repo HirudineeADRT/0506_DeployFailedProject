@@ -122,6 +122,11 @@
           "name": "mysql",
           "version": "2.17.1",
           "language": "javascript"
+        },
+        "sql": {
+          "name": "sql",
+          "version": "0.78.0",
+          "language": "javascript"
         }
       }
     }
@@ -133,7 +138,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1560857363387
+    "lastSave": 1560857968499
   },
   "VCS_STATE": {
     "provider": "GitHub",
