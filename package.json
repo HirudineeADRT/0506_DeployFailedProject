@@ -6,6 +6,6 @@
     "sql": "0.78.0"
   },
   "devDependencies": {
-    "aws-sdk": "2.176.0"
+    "aws-sdk": "2.1693.0"
   }
 }
